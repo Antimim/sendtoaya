@@ -1,0 +1,13 @@
+{% include '_nav.html' %}
+<h1>Detail article</h1>
+<img src="{{article.image.url}}" alt="" />
+<h2>{{article.titre}}</h2>
+<p>{{article.desc}}</p>
+
+<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+  <img src="http://via.placeholder.com/640x360" class="img-fluid" />
+  <a href="{% url 'detail' article.id %}">
+    <div class="mask" style="background-color: rgba(75, 10, 64, 0.15)"></div>
+  </a>
+  http://via.placeholder.com/640x360
+</div>

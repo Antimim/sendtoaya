@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "projetstage",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,4 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATIC_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"

@@ -1,0 +1,7 @@
+{% extends 'partials/base.html' %} {% block content %}
+<form action="" method="POST">
+  {% csrf_token%} {{form}}
+  <button class="btn tbn-success">Modifier l'article</button>
+</form>
+
+{%endblock%}

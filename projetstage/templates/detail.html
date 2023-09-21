@@ -8,8 +8,30 @@
       <h2>{{article.titre}}</h2>
       <p>{{article.desc}}</p>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 mb-1">
       <h3 class="mt-2">Les articles en relation</h3>
+      <div class="row">
+        {% for art in aer %} {% if art.id != article.id %}
+
+        <div class="col-md-7">
+          {% if art.image != "http://default" %}
+
+          <img src="{{art.image.url}}" alt="" style="max-width: 180px" />
+          {% else %}
+          <img
+            class="card-img-top"
+            src="https://via.placeholder.com/400x300"
+            alt="Card image cap"
+            style="max-width: 180 xp"
+          />
+          {% endif %}
+        </div>
+        <div class="col-5">
+          <strong>{{art.titre}}</strong><br />
+          {{art.desc|truncatewords:6}}
+        </div>
+        {% endif %} {% endfor %}
+      </div>
     </div>
   </div>
 </div>

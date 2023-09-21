@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>We2U</title>
+    <title>{% block titre %} We2U {% endblock titre %}</title>
 
     <!-- MDB icon -->
     <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
@@ -26,8 +26,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    {% include "_nav.html" %} {% block content%} {% endblock %} {% include
-    "_footer.html" %}
+    {% include "_nav.html" %} {% block content%} {% endblock %}
     <!-- JQuery -->
 
     <script
@@ -49,5 +48,6 @@
     <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
     <!-- Custom scripts -->
     <script type="text/javascript"></script>
+    {% include "_footer.html" %}
   </body>
 </html>

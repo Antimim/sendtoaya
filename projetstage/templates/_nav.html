@@ -2,12 +2,12 @@
 
 <nav
   class="gradient-custom"
-  style="background-color: rgba(236, 216, 233, 0.15)"
+  style="background-color: rgba(252, 248, 251, 0.15)"
 >
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Navbar brand -->
-    <a class="navbar-brand" href="#">We2U</a>
+    <a class="navbar-brand" href="#" style="color: rgb(255, 255, 255)">We2U</a>
 
     <!-- Toggle button -->
     <button
@@ -27,7 +27,7 @@
       <!-- Left links -->
       <ul
         class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0"
-        style="color: rgba(220, 236, 216, 0.15)"
+        style="color: rgb(255, 255, 255)"
       >
         <li class="nav-item text-center mx-2 mx-lg-1">
           <a class="nav-link active" aria-current="page" href="#!">
@@ -57,6 +57,28 @@
               >
             </div>
             Disabled
+          </a>
+        </li>
+        <li class="nav-item text-center mx-2 mx-lg-1">
+          <a class="nav-link" href="#!">
+            <div>
+              <i class="fas fa-bell fa-lg mb-1"></i>
+              <span class="badge rounded-pill badge-notification bg-dark"
+                >11</span
+              >
+            </div>
+            Messages
+          </a>
+        </li>
+        <li class="nav-item text-center mx-2 mx-lg-1">
+          <a class="nav-link" href="#!">
+            <div>
+              <i class="fas fa-globe-americas fa-lg mb-1"></i>
+              <span class="badge rounded-pill badge-notification bg-dark"
+                >11</span
+              >
+            </div>
+            News
           </a>
         </li>
         <li class="nav-item dropdown text-center mx-2 mx-lg-1">
@@ -92,39 +114,37 @@
       <!-- Left links -->
 
       <!-- Right links -->
-      <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
-        <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link" href="#!">
-            <div>
-              <i class="fas fa-bell fa-lg mb-1"></i>
-              <span class="badge rounded-pill badge-notification bg-dark"
-                >11</span
-              >
-            </div>
-            Messages
-          </a>
-        </li>
-        <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link" href="#!">
-            <div>
-              <i class="fas fa-globe-americas fa-lg mb-1"></i>
-              <span class="badge rounded-pill badge-notification bg-dark"
-                >11</span
-              >
-            </div>
-            News
-          </a>
-        </li>
-      </ul>
+
       <!-- Right links -->
 
       <!-- Search form -->
-      <form class="d-flex input-group w-auto ms-lg-3 my-3 my-lg-0">
+      {% if user.is_authenticated %}
+      <div class="d-flex justify-content-end">
+        <a href="{% url 'logout' %}" class="btn btn-info ml-auto mb-3"
+          >Déconnexion</a
+        >
+      </div>
+      {% else %}
+
+      <div class="d-flex justify-content-end">
+        <a href="{% url 'login-blog' %}" class="btn btn-info ml-auto mb-3"
+          >Connexion</a
+        >
+      </div>
+
+      {% endif %}
+
+      <form
+        class="d-flex input-group w-auto ms-lg-3 my-3 my-lg-0"
+        action="{% url 'search' %}"
+      >
         <input
+          class="form-control mr-sm-2"
           type="search"
           class="form-control"
           placeholder="Search"
           aria-label="Search"
+          name="article"
         />
         <button
           class="btn btn-outline-white"

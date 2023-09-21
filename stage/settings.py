@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-owmgk+6%u#o(y&5we_snv7ne+#qg(l#zk)g$&lpod4#y@*j=ar
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "projetstage",
     "django_extensions",
+    "app_auth",
+    "app_admin",
 ]
 
 MIDDLEWARE = [
@@ -119,6 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

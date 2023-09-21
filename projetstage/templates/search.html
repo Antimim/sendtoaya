@@ -1,0 +1,56 @@
+{% extends 'base.html' %} {% load static%} {% block content %}
+<div class="container">
+  <h2>Liste de recherche</h2>
+  <div class="row">
+    {% for article in liste_article %}
+    <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+      <div class="card mb-2 p-1">
+        {% if article.image == "http://default" %}
+        <div
+          class="bg-image hover-overlay ripple"
+          data-mdb-ripple-color="light"
+        >
+          <img src="http://via.placeholder.com/400x300" class="img-fluid" />
+          <a href="{% url 'detail' article.id %}">
+            <div
+              class="mask"
+              style="background-color: rgba(75, 10, 64, 0.15)"
+            ></div>
+          </a>
+          {% else %}
+
+          <div
+            class="bg-image hover-overlay ripple"
+            data-mdb-ripple-color="light"
+          >
+            <img src="{{ article.image.url }}" class="img-fluid" />
+            <a href="{% url 'detail' article.id %}">
+              <div
+                class="mask"
+                style="background-color: rgba(75, 10, 64, 0.15)"
+              ></div>
+            </a>
+            {% endif %}
+          </div>
+
+          <div class="card-body" style="height: 250px">
+            <h5 class="card-title">
+              <a href="{% url 'detail' article.id %}">{{ article.titre }}</a>
+            </h5>
+            <p class="card-text">{{ article.desc|truncatewords:8 }}</p>
+            <p class="card-text">
+              Publié il y a {{ article.created_at|timesince }}
+            </p>
+            <a href="{% url 'detail' article.id %}" class="btn btn-primary"
+              >Button</a
+            >
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+
+  {% endblock %}
+</div>
